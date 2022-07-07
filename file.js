@@ -47,12 +47,12 @@ function greetingTheUser(){
     }
 
     localStorage.setItem(theGreetFunction.getName(), theGreetFunction.getName());
-    greetings.innerHTML = Object.keys(localStorage).length -1;
+    greetings.innerHTML = Object.keys(localStorage).length -0;
     theOutput.innerHTML = localStorage.getItem('name');
     greetingInDifferentLangages = [];
     theText.value = '';
 }
-greetings.innerHTML = Object.keys(localStorage).length -1;
+greetings.innerHTML = Object.keys(localStorage).length -0;
 theOutput.innerHTML = localStorage.getItem('name');
 
 function reset() {
