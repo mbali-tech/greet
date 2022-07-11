@@ -1,8 +1,9 @@
-function greetingsFunction(){
+function greetingsFunction(array){
+    let names = array || [];
     let name = '';
 
     function setName(theName){
-        name = theName;
+        name = theName.toLowerCase();
     }
 
     function getName(){
@@ -10,17 +11,12 @@ function greetingsFunction(){
     }
 
     function checkingTheName(){
-        if(getName() === '')
-            return 'Name is required!';
-    }
-
-    function checkingTheNumber(){
-        if(getName() == Number(getName()))
-            return 'Enter the name not the number';
+        if(!/^[a-zA-Z]+$/.test(getName()))
+            return 'Name is not valid!';
     }
 
     function greetingUserForSecondTime(){
-        if(getName() === getName())
+        if(getAllGreetedNames().includes(getName()))
             return "This name has been greeted"
     }
 
@@ -34,21 +30,34 @@ function greetingsFunction(){
 
     const languages = () => {
         return {
-            
             English: `Hello ${getName()}`,
             SePedi: `Thobela ${getName()}`,
             SeSotho: `Dumela ${getName()}`,
         }
     };
 
+    function getAllGreetedNames(){
+        return names;
+    }
+
+    function addGreetedName(){
+        names.push(getName())
+    }
+
+    function resetNamesGeeted(){
+        names = [];
+    }
+
     return{
         setName,
         getName,
         languages,
         checkingTheName,
-        checkingTheNumber,
         greetingUserForSecondTime,
         selectingTheLanguage,
-        messageAfterTheResetBtnClicked
+        messageAfterTheResetBtnClicked,
+        getAllGreetedNames,
+        addGreetedName,
+        resetNamesGeeted
     }
 }

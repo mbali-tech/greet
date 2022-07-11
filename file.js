@@ -1,4 +1,8 @@
-let theGreetFunction = greetingsFunction();
+let names;
+if(localStorage.getItem("names")){
+    names = localStorage.getItem("names").split(",");
+}
+let theGreetFunction = greetingsFunction(names);
 
 const theGreetBtn = document.querySelector(".greet");
 const theResetBtn = document.querySelector(".reset");
@@ -6,19 +10,19 @@ const theText = document.querySelector(".name-text");
 const theOutput = document.querySelector(".answer");
 const greetings = document.querySelector(".numberOfGreetings");
 
-let greetingInDifferentLangages = [];
-
 function showingTheRedMessage(){
     document.getElementById("validate").style.visibility = "visible";
 }
 
+greetings.innerHTML = theGreetFunction.getAllGreetedNames().length;
+
 function greetingTheUser(){
     const radioBtnValue = document.querySelector("input[name='radioBtn']:checked");
-    theGreetFunction.setName(theText.value.toLowerCase());
+    theGreetFunction.setName(theText.value);
 
     if(!radioBtnValue){
         document.getElementById('validate').innerHTML = theGreetFunction.selectingTheLanguage();
-        showingTheRedMessage();
+        showingTheRedMessage(); 
     }
 
     if(theGreetFunction.checkingTheName() !== undefined){
@@ -27,38 +31,31 @@ function greetingTheUser(){
         return;
     }
 
-    if(theGreetFunction.checkingTheNumber() !== undefined){
-        document.getElementById('validate').innerHTML = theGreetFunction.checkingTheNumber();
-        showingTheRedMessage();
-        return;
-    }
-
-    if (!localStorage.getItem(theGreetFunction.getName())) {
-       // if (radioBtnValue.value === "venda") greetingInDifferentLangages.push(theGreetFunction.languages().Tshivenda);
-        if (radioBtnValue.value === "english") greetingInDifferentLangages.push(theGreetFunction.languages().English);
-        //if (radioBtnValue.value === "zulu") greetingInDifferentLangages.push(theGreetFunction.languages().IsiZulu);
-        if (radioBtnValue.value === "pedi") greetingInDifferentLangages.push(theGreetFunction.languages().SePedi);
-        if (radioBtnValue.value === "sotho") greetingInDifferentLangages.push(theGreetFunction.languages().SeSotho);    
-        localStorage.setItem('name', greetingInDifferentLangages);
+    if (!theGreetFunction.greetingUserForSecondTime()) {
+        if (radioBtnValue.value === "english"){
+            theOutput.innerHTML = theGreetFunction.languages().English;
+        } 
+        else if (radioBtnValue.value === "pedi"){
+            theOutput.innerHTML = theGreetFunction.languages().SePedi;
+        }
+        else if (radioBtnValue.value === "sotho") {
+            theOutput.innerHTML = theGreetFunction.languages().SeSotho;
+        }    
+        theGreetFunction.addGreetedName();
+        localStorage.setItem('names', theGreetFunction.getAllGreetedNames());
         document.getElementById('validate').style.visibility = 'hidden';
     }else{
         document.getElementById('validate').innerHTML = theGreetFunction.greetingUserForSecondTime();
         showingTheRedMessage();
     }
-
-    localStorage.setItem(theGreetFunction.getName(), theGreetFunction.getName());
-    greetings.innerHTML = Object.keys(localStorage).length -0;
-    theOutput.innerHTML = localStorage.getItem('name');
-    greetingInDifferentLangages = [];
+    greetings.innerHTML = theGreetFunction.getAllGreetedNames().length;
     theText.value = '';
 }
-greetings.innerHTML = Object.keys(localStorage).length -0;
-theOutput.innerHTML = localStorage.getItem('name');
 
 function reset() {
-    greetingInDifferentLangages = [];
     localStorage.clear();
-    greetings.innerHTML = Object.keys(localStorage).length;
+    theGreetFunction.resetNamesGeeted();
+    greetings.innerHTML = theGreetFunction.getAllGreetedNames().length;
     theOutput.innerHTML = "";
     theText.value = '';
     document.getElementById('validate').innerHTML = theGreetFunction.messageAfterTheResetBtnClicked();
