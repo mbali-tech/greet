@@ -12,28 +12,30 @@
 
 <body>
     <div class="greetings">
-        <h2>Greeting</h2>
+        <h1>Greetings App</h1>
         <form action="">
-            <div class="textbox">
-                <div class="name-validate" id="validate"></div> 
+			<div class="name-validate" id="validate"></div>
+            <div class="textbox"> 
                 <input class="name-text" value="" type="text" placeholder="Enter your name">
                 <span class="numberOfGreetings">0</span>
             </div>
-            <label for="">
-                <input type="radio" name="radioBtn" id="radioButton" class="theRadioBtn" value="english">
-                <span class="label-body">English</span>
-            </label>
-            <label for="">
-                <input type="radio" name="radioBtn" id="radioButton" class="theRadioBtn" value="pedi">
-                <span class="label-body">SePedi</span>
-            </label>
-            <label for="">
-                <input type="radio" name="radioBtn" id="radioButton" class="theRadioBtn" value="sotho">
-                <span class="label-body">SeSotho</span>
-            </label>
+            <div class="radioGroup">
+				<label for="english">
+					<input type="radio" name="radioBtn" id="english" class="theRadioBtn" value="english">
+					<span class="label-body">English</span>
+				</label>
+				<label for="pedi">
+					<input type="radio" name="radioBtn" id="pedi" class="theRadioBtn" value="pedi">
+					<span class="label-body">SePedi</span>
+				</label>
+				<label for="sotho">
+					<input type="radio" name="radioBtn" id="sotho" class="theRadioBtn" value="sotho">
+					<span class="label-body">SeSotho</span>
+				</label>
+			</div>
             
             <div class="text-answer">
-                <span class="answer" value="" type="text"> </span>
+                <span class="answer" value="" type="text">Greeting will be displayed here </span>
             </div>
             <div class="buttons">
                 <button class="greet" type="button" name="greet-button">Greet</button>
