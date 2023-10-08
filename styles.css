@@ -1,291 +1,66 @@
-body{
-    font-family: sans-serif;
+body {
+	background: tomato;
+	color: white;
 }
 
-.name-validate{
-    margin-top: -6%;
-    margin-bottom: -1px;
-    font-size: 22px;
-    color: red;
-    visibility: hidden;
+.greetings {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
-.greetings{
-    border: 4px solid #373737;
-    margin: auto;
-    padding: 1rem;
-    font-size: 18px;
-    background-color: rgba(162, 163, 162, 0.667);
-    border-radius: 0%;
-}
-form{
-    display: flex;
-    flex-direction: column;
-}
-h2{
-    text-align: center;
-}
-.greet{
-    height: 50px;
-    background-color: grey;
-    float: left;
-    font-size: 20px;
-    cursor: pointer;
-}
-.reset{
-    height: 50px;
-    margin-right: 175px;
-    background-color: grey;
-    float: right;
-    font-size: 20px;
-    cursor: pointer;
-}
-.name-text{
-    width: 41%;
-    height: 35px;
-    border:  2px solid #0a0a0a;
-    float: left;
-    font-size: 16px;
-    margin: 0px 0px 10px 0px;
-} 
-.answer{
-    width: 43%;
-    height: 35px;
-    border: none;
-    float: right;
-    margin-right: 2px;
-    /*margin-top: -10%; */
-    border:  2px solid #080808;
-    font-size: 16px;
-    margin: 0px 0px 10px 0px;
-    /*margin-bottom: -5%; */
-}
-/*
-.numberOfGreetings{
-    margin-left: 12px;
-    font-size: 25px;
-}
-*/
-/*
-@media only screen and (min-Width: 412px){
-    .greetings{
-        margin: auto;
-        padding: 1rem;
-        font-size: 20px;
-    }
-    .answer{
-        margin-top: -46%;
-    }
-    .greet{
-        margin-left: 5px;
-        margin-left: 32px;
-    }
-    .reset{
-        margin-right: 180px;
-        height: 50px;
-        font-size: 20px;
-        cursor: pointer;
-    }
-}
-*/
-@media only screen and (min-Width: 540px){
-    .answer{
-        margin-top: -34%;
-    }
-    .greet{
-        margin-left: 5px;
-    }
-    .reset{
-        margin-right: 330px;
-    }
+.textbox {
+	display: flex;
 }
 
-@media only screen and (min-Width: 768px){
-    .greetings{
-        width: 30%;
-        margin: auto;
-        padding: 1rem;
-        font-size: 18px;
-    }
-    .answer{
-        width: 38%;
-        height: 60px;
-        float: right;
-        border: none;
-        margin-right: 2px;
-        margin-top: -68%;
-        border:  2px solid #080808;
-        font-size: 16px;
-        margin-bottom: 10%;
-    }
-    .greet{
-        height: 30px;
-        margin-left: 10px;
-        background-color: grey;
-        float: left;
-        width: 22%;
-        font-size: 15px;
-        cursor: pointer;
-    }
-    .reset{
-        height: 30px;
-        width: 22%;
-        margin-right: 110px;
-        background-color: grey;
-        float: right;
-        font-size: 15px;
-        cursor: pointer;
-    }
+.name-text {
+	width: 100%;
+	margin-right: 3px;
 }
-@media only screen and (min-Width: 820px){
-    .greetings{
-        width: 30%;
-        margin: auto;
-        padding: 1rem;
-        font-size: 18px;
-    }
-    .answer{
-        width: 38%;
-        height: 167px;
-        float: right;
-        margin-right: 2px;
-        border: none;
-        margin-top: -65%;
-        border:  2px solid #0f0f0f;
-        font-size: 16px;
-        margin-bottom: -5%;
-    }
-    .greet{
-        height: 40px;
-        margin-left: 10px;
-        background-color: grey;
-        float: left;
-        font-size: 17px;
-        cursor: pointer;
-    }
-    .reset{
-        height: 40px;
-        margin-right: 110px;
-        background-color: grey;
-        float: right;
-        font-size: 17px;
-        cursor: pointer;
-    }
+
+.name-text, .numberOfGreetings, .radioGroup {
+	padding: 15px;
+	border: 3px solid black;
+	border-radius: 20px;
+	background: white;
+	color: black;
 }
-@media only screen and (min-Width: 912px){
-    .greetings{
-        font-size: 20px;
-    }
-    .answer{
-        margin-top: -60%;
-    }
-    .greet{
-        margin-left: 5px;
-        font-size: 20px;
-    }
-    .reset{
-        margin-right: 120px;
-        font-size: 20px;
-    }
+
+.radioGroup {
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
-@media only screen and (min-Width: 1024px){
-    .answer{
-        width: 43%;
-        height: 20px;
-        float: right;
-        margin-right: 2px;
-        border: none;
-        margin-top: -10%;
-        border:  2px solid #080808;
-        font-size: 16px;
-        margin-bottom: -5%;
-    }
-    .greet{
-        margin-left: 1px;
-        height: 50px;
-        background-color: grey;
-        float: left;
-        font-size: 20px;
-        cursor: pointer;
-    }
-    .reset{
-        height: 50px;
-        margin-right: 160px;
-        background-color: grey;
-        float: right;
-        font-size: 20px;
-        cursor: pointer;
-    }
-}/*
-@media only screen and (min-Width: 1280px){
-    .greetings{
-        margin: auto;
-        padding: 1rem;
-        font-size: 25px;
-    }
-    .answer{
-        width: 41%;
-        height: 180px;
-        float: right;
-        margin-right: 2px;
-        border: none;
-        margin-top: -53%;
-        border:  2px solid #2980B9;
-        font-size: 24px;
-        margin-bottom: -5%;
-    }
-    .name-text{
-        width: 45%;
-        height: 40px;
-        border:  2px solid #2980B9;
-        float: left;
-        font-size: 16px;
-        margin: 0px 0px 10px 0px;
-    } 
-    .greet{
-        margin-left: 1px;
-        height: 50px;
-        background-color: grey;
-        float: left;
-        font-size: 20px;
-        cursor: pointer;
-    }
-    .reset{
-        height: 50px;
-        margin-right: 200px;
-        background-color: grey;
-        float: right;
-        font-size: 20px;
-        cursor: pointer;
-    }
-}/*
-@media only screen and (min-Width: 1320px){
-    .answer{
-        width: 43%;
-        height: 180px;
-        float: right;
-        margin-right: 2px;
-        border: none;
-        margin-top: -44%;
-        border:  2px solid #2980B9;
-        font-size: 24px;
-    }
-    .greet{
-        margin: 8px 0px 0px 0px;
-        margin-left: 27px;
-        height: 50px;
-        background-color: grey;
-        float: left;
-        font-size: 20px;
-        cursor: pointer;
-    }
-    .reset{
-        margin: 8px 0px 0px 0px;
-        height: 50px;
-        margin-right: 200px;
-        background-color: grey;
-        float: right;
-        font-size: 20px;
-        cursor: pointer;
-    }
+
+.radioGroup > * {
+	display: inline-block;
+	background: gray;
+	padding: 10px;
+	border-radius: 5px;
+	color: white;
+}
+
+.text-answer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 30px;
+	background: white;
+	color: black;
+	border-radius: 5px;
+	border: 3px solid black;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+}
+
+.buttons > * {
+	background: gray;
+	padding: 10px;
+	color: white;
+	border: 3px solid black;
+	margin-top: 2px;
+	text-transform: uppercase;
 }
